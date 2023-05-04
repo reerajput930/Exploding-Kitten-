@@ -1,0 +1,53 @@
+.card--block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    /* position: absolute;
+    bottom: 5em; */
+    /* position: absolute;
+    bottom: 2em; */
+}
+
+.block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+table, th, td , tr {
+    border:1px solid black;
+}
+
+
+.score--dashboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 30em;
+}
+.current--users{
+    margin-bottom: 20px;
+}
+
+.rules{
+    height: 10em;
+    /* position: absolute;
+    left: 0px;
+    bottom: 1em; */
+}
+
+
+/* style={{ height: "15em", cursor: "pointer", margin: "10px" }} */
+
+/* responsive code */
+@media screen and (max-width: 500px) {
+    .card {
+        height: 100px !important;
+        margin: 2px !important;
+    }
+     .reveal--card{
+        height: 100px !important;  
+     }
+}
