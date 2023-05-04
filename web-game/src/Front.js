@@ -11,7 +11,7 @@ export default function Front(){
   
   // if the user is already present , directing to game 
   useEffect(()=>{
-     console.log(localStorage.getItem("name"))
+     console.log(localStorage.getItem("name") && localStorage.getItem("email")  )
      if(localStorage.getItem("name")){
       window.location.href = "/gamestart"
      }
@@ -20,7 +20,8 @@ export default function Front(){
    
 
 
-   async function onSubmit(){
+   async function onSubmit(e){
+    e.preventDefault();
 
     localStorage.setItem("name",userinfo.name)
     localStorage.setItem("email",userinfo.email)
@@ -34,18 +35,15 @@ export default function Front(){
         body: JSON.stringify(userinfo),
       });
      
-      setUserinfo({
-        name:"",
-        email:"",
-      })
+      
 
       window.location.href = "/gamestart"
     }
-    // console.log(userinfo)
+    console.log(userinfo)
 
     return(  <div className="container mt-5">
     <h2 className="mb-3">Your Detail Before Entering the game!</h2>
-    <form onSubmit={onSubmit}>
+    <form >
       
       <div className="mb-3">
         <label className="form-label" htmlFor="name">
@@ -72,7 +70,7 @@ export default function Front(){
         } className="form-control"  id="email" required />
       </div>
       
-      <button className="btn btn-danger" type="submit">
+      <button onClick={onSubmit} className="btn btn-danger" type="submit">
          Submit
       </button>
     </form>

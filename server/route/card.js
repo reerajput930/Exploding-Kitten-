@@ -62,6 +62,25 @@ router.put("/updatescore/:email", async(req,res)=>{
     }
   })
 
+
+// delete data
+router.delete("/deluser/:email", async(req,res)=>{
+  console.log(req.params.email)
+ 
+  const email = req.params.email
+   
+  try {
+      const   user = await userModel.findOneAndDelete({email})  
+      res.status(200).json({status:"success"})
+      
+  } catch (error) {
+      console.log("problem in update")
+      console.log(error.message)
+      res.status(404).json({status:"failed"})
+  }
+})
+
+
   
 
   module.exports = router

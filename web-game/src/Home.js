@@ -5,6 +5,7 @@ import "./index.css";
 import plancard from "./images/card.jpg";
 import cat from "./images/cat.jpg";
 import { BASE_URL } from "./Api";
+import {Link} from "react-router-dom"
 
 
 // id - 0 cat
@@ -64,6 +65,29 @@ export default function Home() {
       }
     );
   }
+  
+  async function deluserdata(e){
+    e.preventDefault()
+    console.log("hi")
+
+    const response = await fetch(
+      `${BASE_URL}/api/deluser/${localStorage.getItem("email")}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+     
+      }
+    );
+
+    localStorage.removeItem("name")
+    localStorage.removeItem("email")
+
+    window.location.href = "./";
+
+  }
+
 
   function chooseCard(card_id, index) {
     // console.log(card_id);
@@ -176,6 +200,8 @@ export default function Home() {
           />
         </div>
       )}
+
+      <div style={{position:"absolute" , bottom:"1em",cursor:"pointer",color:"red"}}> <h4 onClick={(e)=>{deluserdata(e)}}> Reset your detail</h4></div>
     </div>
   );
 }
