@@ -6,6 +6,7 @@ import plancard from "./images/card.jpg";
 import cat from "./images/cat.jpg";
 import { BASE_URL } from "./Api";
 import {Link} from "react-router-dom"
+import ScoreDashboard from "./ScoreDashboard";
 
 
 // id - 0 cat
@@ -19,6 +20,7 @@ export default function Home() {
   let [score, setScore] = useState(0);
   let [cardLoad, setCardLoad] = useState(false);
   let [chosenCard, setChosenCard] = useState(plancard);
+  let [isWinner,setIsWinner]= useState(false)
 
   useEffect(() => {
     function Shuffle() {
@@ -113,13 +115,15 @@ export default function Home() {
       } else {
         console.log("end game");
         setTimeout(() => {
+          window.alert("Ooops! your kitten is exploded.")
           window.location.href = "./end";
-        }, 2000);
+        }, 1000);
       }
     }
     if (card_id == 2) {
       console.log("shuffle the 5 card again");
       function Shuffle() {
+       
         let shuffledCards = [];
         // shuffle the list and display on screen
 
@@ -134,6 +138,7 @@ export default function Home() {
       }
 
       Shuffle();
+      // window.alert("Remaining card is suffled!")
     }
 
     if (card_id == 3) {
@@ -154,6 +159,7 @@ export default function Home() {
       updateScore();
 
       setTimeout(() => {
+        window.alert("CONGO! you saved the kitten , +1 score!")
         window.location.href = "./end";
       }, 1000);
     }
@@ -163,12 +169,12 @@ export default function Home() {
 
   return (
     <div className="block">
-
+      
    
 
       <div className="userinfo" style={{ margin: "1em" }}>
         <h3>
-          {localStorage.getItem("name")}'s score: {score}
+          {localStorage.getItem("name")}'s current score: {score}
         </h3>
       </div>
 
@@ -196,7 +202,7 @@ export default function Home() {
           <img
             className="reveal--card"
             src={chosenCard}
-            style={{ height: "15em", margin: "5em" }}
+            style={{ height: "15em", margin: "3em" }}
           />
         </div>
       )}

@@ -41,8 +41,11 @@ export default function Front(){
     }
     console.log(userinfo)
 
-    return(  <div className="container mt-5">
-    <h2 className="mb-3">Your Detail Before Entering the game!</h2>
+    return( 
+      <div >
+      <div className="container mt-5">
+      <h2 className="mb-3" style={{color:"white"}}  >Your Detail Before Entering the game!</h2>
+    
     <form >
       
       <div className="mb-3">
@@ -76,5 +79,6 @@ export default function Front(){
     </form>
     <h3 style={{marginTop:"20px",marginBottom:"20px"}}>Game Rules!</h3>
     <img src={rules} className="rules"/>
-  </div>)
+  </div>
+        </div>)
 }
