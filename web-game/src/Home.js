@@ -106,7 +106,8 @@ export default function Home() {
     if (card_id == 1) {
       console.log("defuseExplode: ", defuseExplode);
       if (defuseExplode > 0) {
-        defuseExplode--;
+       
+        setDefuseExplode(defuseExplode -= 1)
         setTotalCards(
           totalCards.filter((card, i) => {
             return i != index;

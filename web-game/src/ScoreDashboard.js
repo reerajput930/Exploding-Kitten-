@@ -49,7 +49,7 @@ export default function ScoreDashboard() {
         )}
       </div>
         <h4 style={{color:"white",textAlign:"center"}}>Below is the Score Board record of online players! </h4>
-      <div className="allplayers">
+      <div className="allplayers" style={{overflowY:"scroll"}}>
         <table>
           <th>Name</th>
           <th>Score</th>

@@ -35,12 +35,15 @@ router.get("/allusers", async (req, res) => {
  // add user 
   router.post("/adduser", async (req, res) => {
     // const { todo, mark } = req.body;
+    const {email,name}= req.body
+    console.log(email)
     try {
-      const user = await userModel.create(req.body);
-      console.log(user);
+      const user = await userModel.create({name:name,email:
+        email});
+      
       res.status(200).json({ status: "success" });
-    } catch (error) {
-      console.log(error.message); 
+    } catch (error) { 
+      console.log(error.message);      
       res.status(404).json({ status: "failed" });
     }
   }); 
