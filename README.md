@@ -24,5 +24,14 @@ and the server is already running on render .
 
 
 ### File structure
+Whole project made around MERN STACK
+>server hosted on render ,
+>client hosted on netlify
+
 - server  in - server file
 - client  in - web-game
+   - Front.js - game's front page
+   - Home.js  - where the actual game is played
+   - ScoreDashboard.js  - the ending page
+   - Card.js   - store the all four cards list
+   
